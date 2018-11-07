@@ -23,17 +23,14 @@ module.exports = {
     var p5 = ["Quanto é 10 + 4 + 8"]
         
 
-    res.view("pages/pessoa/new",
-    titulo: "Perguntas",
+    res.view("pages/pessoa/new",{
+        titulo: "Perguntas",
         pergunta1: p1,
         pergunta2: p2,
         pergunta3: p3,
         pergunta4: p4,
         pergunta5: p5
-    );
-    res.view("pages/pessoa/new");
-  },
-  
+        });
   },
   saveOrUpdate: function(req, res) {
     var pkid = parseInt(req.param("id"));
