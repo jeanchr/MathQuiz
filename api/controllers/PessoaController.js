@@ -25,6 +25,11 @@ module.exports = {
 
     res.view("pages/pessoa/new",{
         titulo: "Perguntas",
+        resposta1: "1",
+        resposta2: "2",
+        resposta3: "3",
+        resposta4: "4",
+        resposta5: "5",
         pergunta1: p1,
         pergunta2: p2,
         pergunta3: p3,
