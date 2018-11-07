@@ -16,68 +16,44 @@ module.exports = {
     });
   },
   new: function(req, res) {
+    var p1 = ["Quanto é 2 + 4 + 8"]
+    var p2 = ["Quanto é 4 + 4 + 8"]
+    var p3 = ["Quanto é 6 + 4 + 8"]
+    var p4 = ["Quanto é 8 + 4 + 8"]
+    var p5 = ["Quanto é 10 + 4 + 8"]
+        
+
+    res.view("pages/pessoa/new",
+    titulo: "Perguntas",
+        pergunta1: p1,
+        pergunta2: p2,
+        pergunta3: p3,
+        pergunta4: p4,
+        pergunta5: p5
+    );
     res.view("pages/pessoa/new");
   },
-  edit: async function(req, res) {
-    var pkid = parseInt(req.param('id'))
-    if (pkid && !isNaN(pkid)) {
-        var p = await Pessoa.findOne({
-          id: pkid
-        });
-      if(p){
-       res.view("pages/pessoa/edit", {
-         pessoa: p
-       });
-      } else {
-       res.redirect("/pessoa?notice=Erro");
-      }
-    } else {
-      res.redirect("/pessoa?notice=Não encontrado.");
-    }
+  
   },
   saveOrUpdate: function(req, res) {
     var pkid = parseInt(req.param("id"));
     var model = {
-      nome: req.param("nome"),
-      sobrenome: req.param("sobrenome"),
-      sexo: req.param("sexo")
+      questao: re.param("questão"),
+      resposta: req.param("sobrenome"),
+     
     }
     if(pkid > 0){
       Pessoa.update({
         id:pkid
       }, model).exec(function(err,newmodel){
-        if(!err){
-          res.redirect("/pessoa?notice=Salvo com sucesso!");
-        }else{
-          res.redirect("/pessoa?notice=Erro");
-        }
+
       });
     } else {
       Pessoa.create(model).exec(function(err, newmodel) {
-      if (!err) { // Salvou!
-        console.log(newmodel);
-          res.redirect("/pessoa?notice=Salvo com sucesso!");
-      } else { // Não Salvou!
+    
       }
     });
     }
   },
 
-  delete: function(req, res) {
-    var pkid = parseInt(req.param("id"))
-    if(pkid && !isNaN(pkid)){
-      Pessoa.destroy({
-        id: pkid
-      }).exec(function(err){
-        if(!err){
-          res.redirect("/pessoa?notice=Removido");
-        }else{
-          res.redirect("/pessoa?notice=Erro");
-        }
-      });
-    }else{
-      res.redirect("/pessoa?notice=Não encontrado");
-    }
-  }
 };
-
