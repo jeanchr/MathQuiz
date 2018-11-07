@@ -47,8 +47,6 @@ module.exports = {
       });
     } else {
       Pessoa.create(model).exec(function(err, newmodel) {
-    
-      }
     });
     }
   },
