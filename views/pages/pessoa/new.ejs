@@ -1,11 +1,19 @@
-<h1>Nova pessoa</h1>
+<h1><?= titulo ?></h1>
 <form action="/pessoa/save" method="POST">
-	<input type="text" name="nome" placeholder="Digite o nome" /><br/>
-	<input type="text" name="sobrenome" placeholder="Digite o sobrenome" /><br/>
-	<select name="sexo">
-		<option value="">Selecione o sexo</option>
-		<option value="F">Feminino</option>
-		<option value="M">Masculino</option>
-	</select><br/>
-	<input type="submit" value="Salvar"/>
+	<input type="hidden id="r1" value="<?= resposta1 ?>" />
+	<input type="hidden id="r2" value="<?= resposta2 ?>" />
+	<input type="hidden id="r3" value="<?= resposta3 ?>" />
+	<input type="hidden id="r4" value="<?= resposta4 ?>" />
+	<input type="hidden id="r5" value="<?= resposta5 ?>" />
+	<label id="pergunta1"><?= pergunta1 ?></label>
+		<input type="text" name="p1" id="p1" placeholder="Digite a resposta aqui..." /><br/>
+	<label id="pergunta2"><?= pergunta2 ?></label>
+		<input type="text" name="p2" id="p2" placeholder="Digite a resposta aqui..." /><br/>
+	<label id="pergunta3"><?= pergunta3 ?></label>
+		<input type="text" name="p3" id="p3" placeholder="Digite a resposta aqui..." /><br/>
+	<label id="pergunta3"><?= pergunta4 ?></label>
+		<input type="text" name="p4" id="p4" placeholder="Digite a resposta aqui..." /><br/>
+	<label id="pergunta3"><?= pergunta5 ?></label>
+		<input type="text" name="p5" id="p5" placeholder="Digite a resposta aqui..." /><br/>
+	<input type="submit" id="btnSubmit" value="Salvar"/>
 </form>
