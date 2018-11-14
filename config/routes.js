@@ -42,8 +42,8 @@ module.exports.routes = {
   'GET /pessoa/edit/:id':    { action: 'pessoa/edit'},
   'GET /pessoa/delete/:id':  { action: 'pessoa/delete' },
   'POST /pessoa/save':       { action: 'pessoa/saveOrUpdate' },
-
-  'GET /pessoa/teste':      { action: 'pessoa/teste' },
+  'GET /pessoa/question':    { action: 'pessoa/question' },
+  'GET /pessoa/resposta':    { action: 'pessoa/resposta' },
 
   //  ╔═╗╔═╗╦  ╔═╗╔╗╔╔╦╗╔═╗╔═╗╦╔╗╔╔╦╗╔═╗
   //  ╠═╣╠═╝║  ║╣ ║║║ ║║╠═╝║ ║║║║║ ║ ╚═╗

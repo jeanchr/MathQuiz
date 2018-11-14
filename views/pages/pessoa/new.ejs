@@ -1,21 +1,27 @@
 <center>
 <br /><h1><%= titulo %></h1><br />
 <form action="/pessoa/save" method="POST">
-	<input type="hidden" id="r1" value="<%= resposta1 %>" />
-	<input type="hidden" id="r2" value="<%= resposta2 %>" />
-	<input type="hidden" id="r3" value="<%= resposta3 %>" />
-	<input type="hidden" id="r4" value="<%= resposta4 %>" />
-	<input type="hidden" id="r5" value="<%= resposta5 %>" />
-	<label id="pergunta1"><%= pergunta1 %></label><br />
-		<input type="text" name="p1" id="p1" placeholder="Digite a resposta aqui..." /><br /><br />
-	<label id="pergunta2"><%= pergunta2 %></label><br />
-		<input type="text" name="p2" id="p2" placeholder="Digite a resposta aqui..." /><br /><br />
-	<label id="pergunta3"><%= pergunta3 %></label><br />
-		<input type="text" name="p3" id="p3" placeholder="Digite a resposta aqui..." /><br /><br />
-	<label id="pergunta3"><%= pergunta4 %></label><br />
-		<input type="text" name="p4" id="p4" placeholder="Digite a resposta aqui..." /><br /><br />
-	<label id="pergunta3"><%= pergunta5 %></label><br />
-		<input type="text" name="p5" id="p5" placeholder="Digite a resposta aqui..." /><br /><br />
+	<label id="pergunta1">Insira a primeira pergunta</label><br />
+		<input type="text" name="p1" id="p1" placeholder="Insira a pergunta aqui..." /><br /><br />
+	<label id="pergunta2">Insira a segunda pergunta</label><br />
+		<input type="text" name="p2" id="p2" placeholder="Insira a pergunta aqui..." /><br /><br />
+	<label id="pergunta3">Insira a terceira pergunta</label><br />
+		<input type="text" name="p3" id="p3" placeholder="Insira a pergunta aqui..." /><br /><br />
+	<label id="pergunta4">Insira a quarta pergunta</label><br />
+		<input type="text" name="p4" id="p4" placeholder="Insira a pergunta aqui..." /><br /><br />
+	<label id="pergunta5">Insira a quinta pergunta</label><br />
+		<input type="text" name="p5" id="p5" placeholder="Insira a pergunta aqui..." /><br /><br />
+	----------------------------<br /><br />
+	<label id="resposta1">Insira a primeira resposta</label><br />
+		<input type="text" name="r1" id="r1" placeholder="Insira a resposta aqui..." /><br /><br />
+	<label id="resposta2">Insira a segunda resposta</label><br />
+		<input type="text" name="r2" id="r2" placeholder="Insira a resposta aqui..." /><br /><br />
+	<label id="resposta3">Insira a terceira resposta</label><br />
+		<input type="text" name="r3" id="r3" placeholder="Insira a resposta aqui..." /><br /><br />
+	<label id="resposta4">Insira a quarta resposta</label><br />
+		<input type="text" name="r4" id="r4" placeholder="Insira a resposta aqui..." /><br /><br />
+	<label id="resposta5">Insira a quinta resposta</label><br />
+		<input type="text" name="r5" id="r5" placeholder="Insira a resposta aqui..." /><br /><br />
 	<input type="submit" id="btnSubmit" value="Salvar"/>
 </form>
 </center>
