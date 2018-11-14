@@ -33,16 +33,16 @@ module.exports = {
         resposta4: "4",
         resposta5: "5",
         perguntaLabel1: p1,
-        pergunta2Label: p2,
-        pergunta3Label: p3,
-        pergunta4Label: p4,
-        pergunta5Label: p5
+        perguntaLabel2: p2,
+        perguntaLabel3: p3,
+        perguntaLabel4: p4,
+        perguntaLabel5: p5
     });
 
   },
 
   resposta: function(req, res){ //page respostas questões
-    res.view("pages/pessoa/resposta");
+        res.redirect("/pessoa/resposta?notice=Salvo com sucesso");
   },
 
   new: function(req, res){ //criar novas questões
@@ -54,8 +54,8 @@ module.exports = {
   saveOrUpdate: function(req, res) { //salvar novas questões
     var pkid = parseInt(req.param("id"));
     var model = {
-      pergunta: req.params("pergunta"),
-      resposta: req.params("resposta")
+      pergunta: req.param("pergunta"),
+      resposta: req.param("resposta")
     }
 
     if(pkid > 0){
