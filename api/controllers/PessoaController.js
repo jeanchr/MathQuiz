@@ -6,17 +6,18 @@
  */
 
 module.exports = {
-  index: function(req, res) {
-    Pessoa.find().then(function(data) {
-      res.view("pages/pessoa/question",
-        {
-          notice: req.param("notice"),
-          pessoas: data
+  
+  index: function(req, res){
+        Pessoa.find().then(function(data){
+            res.view("pages/pessoa/index",{
+                notice: req.param("notice"),
+                titulo: "MathQuiz",
+                perguntas: data
+            });
         });
-    });
   },
 
-  question: function(req, res) {
+  question: function(req, res) { //page responder questões
     var p1 = ["Quanto é 2 + 4 + 8"]
     var p2 = ["Quanto é 4 + 4 + 8"]
     var p3 = ["Quanto é 6 + 4 + 8"]
@@ -31,41 +32,52 @@ module.exports = {
         resposta3: "3",
         resposta4: "4",
         resposta5: "5",
-        pergunta1: p1,
-        pergunta2: p2,
-        pergunta3: p3,
-        pergunta4: p4,
-        pergunta5: p5
-        });
+        perguntaLabel1: p1,
+        pergunta2Label: p2,
+        pergunta3Label: p3,
+        pergunta4Label: p4,
+        pergunta5Label: p5
+    });
+
   },
 
-  resposta: function(req, res){
+  resposta: function(req, res){ //page respostas questões
     res.view("pages/pessoa/resposta");
   },
 
-  new: function(req, res){
+  new: function(req, res){ //criar novas questões
     res.view("pages/pessoa/new",{
-      titulo: "Inserir Perguntas"
+        titulo: "Inserir Perguntas"
     });
   },
 
-  saveOrUpdate: function(req, res) {
+  saveOrUpdate: function(req, res) { //salvar novas questões
     var pkid = parseInt(req.param("id"));
     var model = {
-      questao: re.param("questão"),
-      resposta: req.param("resposta"),
+      pergunta: req.params("pergunta"),
+      resposta: req.params("resposta")
     }
-    res.redirect("/pessoa");
+
     if(pkid > 0){
       Pessoa.update({
         id:pkid
       }, model).exec(function(err,newmodel){
-
+        if(!err){
+          res.redirect("/pessoa?notice=Salvo com sucesso!");
+        }else{
+          res.redirect("/pessoa?notice=Erro");
+        }
       });
     } else {
       Pessoa.create(model).exec(function(err, newmodel) {
+      if (!err) { // Salvou!
+        console.log(newmodel);
+          res.redirect("/pessoa?notice=Salvo com sucesso!");
+      } else { // Não Salvou!
+          res.redirect("/pessoa?notice=não Salvou");
+      }
     });
     }
-  },
+  }
 
 };
