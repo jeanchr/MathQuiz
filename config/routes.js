@@ -39,11 +39,11 @@ module.exports.routes = {
 
   'GET /pessoa':             { action: 'pessoa/index' },
   'GET /pessoa/new':         { action: 'pessoa/new' },
-  'GET /pessoa/edit/:id':         { action: 'pessoa/edit'},
-  'GET /pessoa/delete/:id':      { action: 'pessoa/delete' },
-  'POST /pessoa/save':            { action: 'pessoa/saveOrUpdate' },
+  'GET /pessoa/edit/:id':    { action: 'pessoa/edit'},
+  'GET /pessoa/delete/:id':  { action: 'pessoa/delete' },
+  'POST /pessoa/save':       { action: 'pessoa/saveOrUpdate' },
 
-  'GET /pessoa/teste1':       { action: 'pessoa/teste1' },
+  'GET /pessoa/teste':      { action: 'pessoa/teste' },
 
   //  ╔═╗╔═╗╦  ╔═╗╔╗╔╔╦╗╔═╗╔═╗╦╔╗╔╔╦╗╔═╗
   //  ╠═╣╠═╝║  ║╣ ║║║ ║║╠═╝║ ║║║║║ ║ ╚═╗

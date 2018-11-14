@@ -37,6 +37,9 @@ module.exports = {
         pergunta5: p5
         });
   },
+  teste: function(req, res){
+    res.view("pages/pessoa/teste");
+  },
   saveOrUpdate: function(req, res) {
     var pkid = parseInt(req.param("id"));
     var model = {
