@@ -37,13 +37,13 @@ module.exports.routes = {
 
   'GET /teste':              { action: 'teste/index' },
 
-  'GET /pessoa':             { action: 'pessoa/index' },
-  'GET /pessoa/new':         { action: 'pessoa/new' },
-  'GET /pessoa/edit/:id':    { action: 'pessoa/edit'},
-  'GET /pessoa/delete/:id':  { action: 'pessoa/delete' },
-  'POST /pessoa/save':       { action: 'pessoa/saveOrUpdate' },
-  'GET /pessoa/question':    { action: 'pessoa/question' },
-  'GET /pessoa/resposta':    { action: 'pessoa/resposta' },
+  'GET /pergunta':             { action: 'pergunta/index' },
+  'GET /pergunta/new':         { action: 'pergunta/new' },
+  'GET /pergunta/edit/:id':    { action: 'pergunta/edit'},
+  'GET /pergunta/delete/:id':  { action: 'pergunta/delete' },
+  'POST /pergunta/save':       { action: 'pergunta/saveOrUpdate' },
+  'GET /pergunta/question':    { action: 'pergunta/question' },
+  'POST /pergunta/resposta':    { action: 'pergunta/resposta' },
 
   //  ╔═╗╔═╗╦  ╔═╗╔╗╔╔╦╗╔═╗╔═╗╦╔╗╔╔╦╗╔═╗
   //  ╠═╣╠═╝║  ║╣ ║║║ ║║╠═╝║ ║║║║║ ║ ╚═╗
