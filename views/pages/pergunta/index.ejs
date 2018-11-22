@@ -1,0 +1,15 @@
+<!-- Página inicial -->
+
+<center>
+
+<br /><%= titulo %> <br /><br />
+<a href="/pergunta/question" id="p111">Responder Questões</a><br /><br />
+<a href="/pergunta/new">Inserir Questões</a></a><br /><br />
+
+<% for(i=0; i<perguntas.length; i++) { %>
+	<%= perguntas[i].pergunta %>
+	<%= perguntas[i].resposta %>
+	<br />
+<% } %>
+
+</center>
