@@ -38,12 +38,13 @@ module.exports.routes = {
   'GET /teste':              { action: 'teste/index' },
 
   'GET /pergunta':             { action: 'pergunta/index' },
+  'GET /pergunta/professor':   { action: 'pergunta/professor' },
   'GET /pergunta/new':         { action: 'pergunta/new' },
-  'GET /pergunta/edit/:id':    { action: 'pergunta/edit'},
+  'GET /pergunta/edit/:id':    { action: 'pergunta/edit' },
   'GET /pergunta/delete/:id':  { action: 'pergunta/delete' },
   'POST /pergunta/save':       { action: 'pergunta/saveOrUpdate' },
   'GET /pergunta/question':    { action: 'pergunta/question' },
-  'POST /pergunta/resposta':    { action: 'pergunta/resposta' },
+  'POST /pergunta/resposta':   { action: 'pergunta/resposta' },
 
   //  ╔═╗╔═╗╦  ╔═╗╔╗╔╔╦╗╔═╗╔═╗╦╔╗╔╔╦╗╔═╗
   //  ╠═╣╠═╝║  ║╣ ║║║ ║║╠═╝║ ║║║║║ ║ ╚═╗

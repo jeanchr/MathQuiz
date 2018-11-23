@@ -8,14 +8,31 @@
 module.exports = {
   
   index: function(req, res){
-        Pergunta.find().then(function(data){
             res.view("pages/pergunta/index",{
+                notice: req.param("notice"),
+                titulo: "MathQuiz",
+            });
+  },
+
+  professor: function(req, res){
+        Pergunta.find().then(function(data){
+            res.view("pages/pergunta/professor",{
                 notice: req.param("notice"),
                 titulo: "MathQuiz",
                 perguntas: data
             });
         });
   },
+
+  edit: function(req, res){
+      Pergunta.find().then(function(data){
+          res.view("pages/pergunta/index",{
+              notice: req.param("notice"),
+              titulo: "Editar",
+             perguntas: data
+          });
+      });
+  }
 
   question: function(req, res) { //page responder questões
     var p1 = ["Quanto é 2 + 4 + 8"]
