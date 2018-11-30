@@ -6,12 +6,25 @@
  */
 
 module.exports = {
-  
-  index: function(req, res){
-            res.view("pages/pergunta/index",{
+  index: function(req,res){
+          res.view("pages/pergunta/index",{
+                titulo: "MathQuiz"
+          });
+  },
+
+  aluno: function(req, res){
+            res.view("pages/pergunta/aluno",{
                 notice: req.param("notice"),
                 titulo: "MathQuiz",
             });
+  },
+
+  user: function(req, res){
+      if(req.me.isSuperAdmin){
+        res.redirect("/pergunta/professor");
+      } else {
+        res.redirect("/pergunta/aluno");
+      }
   },
 
   professor: function(req, res){
@@ -26,21 +39,21 @@ module.exports = {
 
   edit: function(req, res){
       Pergunta.find().then(function(data){
-          res.view("pages/pergunta/index",{
+          res.view("pages/pergunta/edit",{
               notice: req.param("notice"),
               titulo: "Editar",
              perguntas: data
           });
       });
-  }
+  },
 
   question: function(req, res) { //page responder questões
-    var p1 = ["Quanto é 2 + 4 + 8"]
-    var p2 = ["Quanto é 4 + 4 + 8"]
-    var p3 = ["Quanto é 6 + 4 + 8"]
-    var p4 = ["Quanto é 8 + 4 + 8"]
-    var p5 = ["Quanto é 10 + 4 + 8"]
-        
+    var p1 = ["Quanto é 2 + 4 + 8"];
+    var p2 = ["Quanto é 4 + 4 + 8"];
+    var p3 = ["Quanto é 6 + 4 + 8"];
+    var p4 = ["Quanto é 8 + 4 + 8"];
+    var p5 = ["Quanto é 10 + 4 + 8"];
+    
 
     res.view("pages/pergunta/question",{
         titulo: "Perguntas",
@@ -70,6 +83,16 @@ module.exports = {
     });
   },
 
+  perguntas: function(req, res){
+    Pergunta.find().then(function(data){
+            res.view("pages/pergunta/perguntas",{
+                notice: req.param("notice"),
+                titulo: "Banco de Perguntas",
+                perguntas: data
+            });
+        });
+  },
+
   saveOrUpdate: function(req, res) { //salvar novas questões
     var pkid = parseInt(req.param("id"));
     var model = {
@@ -82,18 +105,18 @@ module.exports = {
         id:pkid
       }, model).exec(function(err,newmodel){
         if(!err){
-          res.redirect("/pergunta?notice=Salvo com sucesso!");
+          res.redirect("/pergunta/professor?notice=Salvo com sucesso!");
         }else{
-          res.redirect("/pergunta?notice=Erro");
+          res.redirect("/pergunta/new?notice=Erro");
         }
       });
     } else {
       Pergunta.create(model).exec(function(err, newmodel) {
       if (!err) { // Salvou!
         console.log(newmodel);
-          res.redirect("/pergunta?notice=Salvo com sucesso!");
+          res.redirect("/pergunta/professor?notice=Salvo com sucesso!");
       } else { // Não Salvou!
-          res.redirect("/pergunta?notice=não Salvou"+err);
+          res.redirect("/pergunta/new?notice=não Salvou"+err);
       }
     });
     }

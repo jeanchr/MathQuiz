@@ -16,6 +16,10 @@
           <div class="invalid-feedback" v-if="formErrors.emailAddress">Please enter a valid email address.</div>
         </div>
         <div class="form-group">
+          <input id="validacaoProf" type="checkbox"  :class="[formErrors.isSuperAdmin ? 'is-invalid' : '']" v-model.trim="formData.isSuperAdmin">
+          <label for="validacaoProf">Professor</label>
+        </div>
+        <div class="form-group">
           <label for="password">Choose a password</label>
           <input class="form-control" id="password" type="password"  :class="[formErrors.password ? 'is-invalid' : '']" v-model.trim="formData.password" placeholder="••••••••" autocomplete="new-password">
           <div class="invalid-feedback" v-if="formErrors.password">Please enter a password.</div>

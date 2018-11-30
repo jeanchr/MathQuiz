@@ -1,0 +1,14 @@
+<!-- Página do banco de dados -->
+<center>
+
+	<br /><%= titulo %> <br /><br />
+
+	<% for(i=0; i<perguntas.length; i++) { %>
+		Pergunta<%= perguntas[i].id %>: <%= perguntas[i].pergunta  %>
+		 - R: <%= perguntas[i].resposta %>
+		<br />
+	<% } %>
+		<br />
+	<a href="/pergunta/professor">Voltar</a>
+
+</center>
