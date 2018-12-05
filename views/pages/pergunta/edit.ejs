@@ -1,8 +1,17 @@
 <!-- Editar as novas questões adicionadas anteriormente -->
 <!-- Função que talvez seja retirada -->
-<h1>Editar pessoa</h1>
-<form action="/pessoa/save" method="POST">
+<center>
+<br /><h1>Editar</h1><br />
+<form action="/pergunta/save" method="POST">
+	
+	<input type="hidden" name="id"
+    value="<%= pergunta.id %>"/>
+	<label id="perguntaLabel">Digite a pergunta</label><br />
+		<input type="text" name="pergunta" id="pergunta" placeholder="Pergunta..." value="<%= pergunta.pergunta %>" /><br /><br />
+	----------------------------<br /><br />
+	<label id="respostaLabel">Digite a resposta</label><br />
+		<input type="text" name="resposta" id="resposta" placeholder="Resposta..." value="<%= pergunta.resposta %>" /><br /><br />
 
-
-	<input type="submit" value="Salvar"/>
+	<input type="submit" id="btnSubmit" value="Salvar"/>
 </form>
+</center>

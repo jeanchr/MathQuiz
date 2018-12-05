@@ -37,37 +37,27 @@ module.exports = {
         });
   },
 
-  edit: function(req, res){
-      Pergunta.find().then(function(data){
-          res.view("pages/pergunta/edit",{
-              notice: req.param("notice"),
-              titulo: "Editar",
-             perguntas: data
+  edit: async function(req, res){
+    var pkid = parseInt(req.param('id'))
+    if (pkid && !isNaN(pkid)) {
+        var p = await Pergunta.findOne({
+            id: pkid
+        });
+        if (p) {
+          res.view("pages/pergunta/edit", {
+            pergunta: p
           });
-      });
+        } else {
+          res.redirect("/pergunta?notice=Erro.");
+        }
+    } else {
+        res.redirect("/pergunta?notice=Não encontrado.");
+    }
   },
 
   question: function(req, res) { //page responder questões
-    var p1 = ["Quanto é 2 + 4 + 8"];
-    var p2 = ["Quanto é 4 + 4 + 8"];
-    var p3 = ["Quanto é 6 + 4 + 8"];
-    var p4 = ["Quanto é 8 + 4 + 8"];
-    var p5 = ["Quanto é 10 + 4 + 8"];
-    
 
-    res.view("pages/pergunta/question",{
-        titulo: "Perguntas",
-        resposta1: "1",
-        resposta2: "2",
-        resposta3: "3",
-        resposta4: "4",
-        resposta5: "5",
-        perguntaLabel1: p1,
-        perguntaLabel2: p2,
-        perguntaLabel3: p3,
-        perguntaLabel4: p4,
-        perguntaLabel5: p5
-    });
+   
 
   },
 
@@ -107,7 +97,7 @@ module.exports = {
         if(!err){
           res.redirect("/pergunta/professor?notice=Salvo com sucesso!");
         }else{
-          res.redirect("/pergunta/new?notice=Erro");
+          res.redirect("/pergunta/edit?notice=Erro");
         }
       });
     } else {
@@ -119,6 +109,23 @@ module.exports = {
           res.redirect("/pergunta/new?notice=não Salvou"+err);
       }
     });
+    }
+  },
+
+  delete: function(req, res) {
+    var pkid = parseInt(req.param('id'))
+    if (pkid && !isNaN(pkid)) {
+        Pergunta.destroy({
+            id: pkid
+        }).exec(function(err) {
+            if (!err) {
+              res.redirect("/pergunta/professor?notice=Removido.");
+            } else {
+              res.redirect("/pergunta/perguntas?notice=Erro.");
+            }
+        });
+    } else {
+        res.redirect("/pergunta/perguntas?notice=Não encontrado.");
     }
   }
 

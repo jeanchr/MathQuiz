@@ -6,6 +6,8 @@
 	<% for(i=0; i<perguntas.length; i++) { %>
 		Pergunta<%= perguntas[i].id %>: <%= perguntas[i].pergunta  %>
 		 - R: <%= perguntas[i].resposta %>
+		 <a href="/pergunta/edit/<%= perguntas[i].id %>"> Editar </a>
+		 <a href="/pergunta/delete/<%= perguntas[i].id %>"> Deletar</a>
 		<br />
 	<% } %>
 		<br />
