@@ -1,23 +1,16 @@
 <!-- Responder questões -->
 <center>
-<br /><h1><%= titulo %></h1><br />
+<br /><h1>Perguntas</h1><br />
 <form action="/pergunta/resposta" method="POST">
-	<input type="hidden" id="resposta1" value="<%= resposta1 %>" />
-	<input type="hidden" id="resposta2" value="<%= resposta2 %>" />
-	<input type="hidden" id="resposta3" value="<%= resposta3 %>" />
-	<input type="hidden" id="resposta4" value="<%= resposta4 %>" />
-	<input type="hidden" id="resposta5" value="<%= resposta5 %>" />
+	<% var a;%>
+	
+	<% for(var i=0; i<pergunta.length; i++) { %>
+		<input type="hidden" name="id" value="<%= pergunta[i].id %>" />
 
-	<label id="perguntaLabel1"><%= perguntaLabel1 %></label><br />
-		<input type="text" name="p1" id="p1" placeholder="Digite a resposta aqui..." /><br /><br />
-	<label id="perguntaLabel2"><%= perguntaLabel2 %></label><br />
-		<input type="text" name="p2" id="p2" placeholder="Digite a resposta aqui..." /><br /><br />
-	<label id="perguntaLabel3"><%= perguntaLabel3 %></label><br />
-		<input type="text" name="p3" id="p3" placeholder="Digite a resposta aqui..." /><br /><br />
-	<label id="perguntaLabel4"><%= perguntaLabel4 %></label><br />
-		<input type="text" name="p4" id="p4" placeholder="Digite a resposta aqui..." /><br /><br />
-	<label id="perguntaLabel5"><%= perguntaLabel5 %></label><br />
-		<input type="text" name="p5" id="p5" placeholder="Digite a resposta aqui..." /><br /><br />
+		<label id="perguntaLabelid<%i%>"><%= pergunta[i].pergunta %></label><br />
+		<input type="text" name="per" placeholder="Digite a resposta aqui..." required/><br /><br />
+	<% } %>
+
 	<input type="submit" id="btnSubmit" value="Responder"/>
 </form>
 </center>
