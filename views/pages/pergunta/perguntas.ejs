@@ -1,7 +1,10 @@
 <!-- Página do banco de dados -->
+
+<link rel="stylesheet" href="/styles/bootstrap.css">
+
 <center>
 
-	<br /><%= titulo %> <br /><br />
+	<br/><h1 class="titulo" ><%= titulo %>  </h1><br /><br />
 
 	<% for(i=0; i<perguntas.length; i++) { %>
 		Pergunta<%= perguntas[i].id %>: <%= perguntas[i].pergunta  %>
@@ -9,6 +12,6 @@
 		<br />
 	<% } %>
 		<br />
-	<a href="/pergunta/professor">Voltar</a>
+	<a href="/pergunta/professor" class="botao1" >Voltar</a>
 
 </center>
