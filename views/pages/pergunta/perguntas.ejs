@@ -8,10 +8,9 @@
 
 	<% for(i=0; i<perguntas.length; i++) { %>
 		Pergunta<%= perguntas[i].id %>: <%= perguntas[i].pergunta  %>
-		 - R: <%= perguntas[i].resposta %>
-		<br />
-	<% } %>
-		<br />
-	<a href="/pergunta/professor" class="botao1" >Voltar</a>
+		<%= perguntas[i].resposta %>
+		 <a href="/pergunta/edit/<%= perguntas[i].id %>"> Editar </a>
+		 <a href="/pergunta/delete/<%= perguntas[i].id %>"> Deletar</a>	<br /><% } %>
+	<br><a href="/pergunta/professor" class="botao1" >Voltar</a></br>
 
 </center>

@@ -3,15 +3,19 @@
 <link rel="stylesheet" href="/styles/bootstrap.css">
 
 <center>
-<br /><h1 class="titulo" ><%= titulo %></h1><br />
+<br /><h1 class="titulo"><%= titulo %></h1><br />
 <form action="/pergunta/save" method="POST">
 
-	<label id="perguntaLabel">Digite a pergunta</label><br />
-		<input type="text" name="pergunta" id="pergunta" placeholder="Pergunta..." /><br /><br />
-	----------------------------<br /><br />
-	<label id="respostaLabel">Digite a resposta</label><br />
-		<input type="text" name="resposta" id="resposta" placeholder="Resposta..." /><br /><br />
+	<label id="perguntaLabel">Digite a pergunta</label><br/>
+		<input type="text" name="pergunta" id="pergunta" placeholder="Pergunta..." required/><br /><br /><br /><br />
+	<label id="respostaLabel">Digite a resposta</label><br/>
+		<input type="text" name="resposta" id="resposta" placeholder="Resposta..." required/><br /><br />
+
 
 	<input type="submit" class="btnSubmit" value="Salvar"/>
+
+	<a href="/pergunta/professor">Voltar</a><br />
+	<input type="submit" id="btnSubmit" value="Salvar"/>
+
 </form>
 </center>
