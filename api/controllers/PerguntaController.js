@@ -66,32 +66,31 @@ module.exports = {
   },
 
   resposta: function(req, res){ //page respostas questões
-      var a;
-      var p;
-      var pCerta;
+      var idPergunta;
+      var resPergunta;
+      var respostaCerta;
       var acertos=0;
       var erros=0;
 
       for(var i=0; i<5; i++){
-          a[i] = parseInt(req.param("id"));
-          p[i] = req.param("resposta");
-
+          idPergunta[i] = parseInt(req.param("id"));
+          resPergunta[i] = req.param("resposta");
       }
 
       for(var k=0; k<5; k++){
-          pCerta[k] = Pergunta.find({  
-              where: {"id":a[k]},
+          respostaCerta[k] = Pergunta.find({  
+              where: {"id":idPergunta[k]},
               select: ["resposta"]
           });
           
-          if(p[a[k]] == pCerta[k]){
+          if(resPergunta[idPergunta[k]] == respostaCerta[k]){
               acertos = acertos + 1;
           } else {
               erros = erros + 1;
           }
       }
 
-      res.view("pages/pergunta/resposta",{
+      res.view("/pergunta/resposta",{
           acertou: acertos,
           errou: erros,
           me: undefined

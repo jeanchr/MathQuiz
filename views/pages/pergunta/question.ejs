@@ -5,10 +5,10 @@
 	<% var a;%>
 	
 	<% for(var i=0; i<pergunta.length; i++) { %>
-		<input type="hidden" name="id" value="<%= pergunta[i].id %>" />
+		<input type="hidden" name="id<%= pergunta[i].id %>" value="<%= pergunta[i].id %>" />
 
-		<label id="perguntaLabelid<%i%>"><%= pergunta[i].pergunta %></label><br />
-		<input type="text" name="per" placeholder="Digite a resposta aqui..." required/><br /><br />
+		<label id="perguntaLabelid<%= pergunta[i].id %>"><%= pergunta[i].pergunta %></label><br />
+		<input type="text" name="per<%= pergunta[i].id %>" placeholder="Digite a resposta aqui..." required/><br /><br />
 	<% } %>
 
 	<input type="submit" id="btnSubmit" value="Responder"/>
